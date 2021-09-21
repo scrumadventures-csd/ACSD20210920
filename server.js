@@ -21,7 +21,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //look for environment variable to get the port || port 5000 locally
-const PORT = process.env.PORT || 5000;
-const HOST_ADDRESS = process.env.HOST_ADDRESS || "127.0.0.1";
+// const PORT = process.env.PORT || 5000;
+// const HOST_ADDRESS = process.env.HOST_ADDRESS || "127.0.0.1";
 
 module.exports = app;

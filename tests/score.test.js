@@ -1,21 +1,13 @@
 const app = require("../server");
 const supertest = require("supertest");
+const { getScore } = require("../functions/scoring");
 
-// beforeEach((done) => {
-//   mongoose.connect("mongodb://localhost:27017/JestDB",
-//     { useNewUrlParser: true, useUnifiedTopology: true },
-//     () => done());
-// });
-
-// afterEach((done) => {
-//   mongoose.connection.db.dropDatabase(() => {
-//     mongoose.connection.close(() => done())
-//   });
-// });
-
-test("GET /api/score?ball1=2", async () => {
+test("getScore with 2 pins", () => {
+  expect(getScore("2")).toBe("2");
+});
+test("GET /api/score?pins=2", async () => {
   await supertest(app)
-    .get("/api/score?ball1=2")
+    .get("/api/score?pins=2")
     .expect(200)
     .then((response) => {
       // Check type and length
