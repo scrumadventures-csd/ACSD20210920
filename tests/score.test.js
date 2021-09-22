@@ -1,16 +1,16 @@
 const app = require("../server");
 const supertest = require("supertest");
-const { getScore } = require("../functions/scoring");
+const { getPins } = require("../functions/scoring");
 
-test("getScore with 2 pins", () => {
-  expect(getScore("2")).toBe("2");
+test("getPins for ball 1", () => {
+  expect(getPins("1")).toBe("2");
 });
-test("GET /api/score?pins=2", async () => {
+test("GET /api/score?ball=1", async () => {
   await supertest(app)
-    .get("/api/score?pins=2")
+    .get("/api/score?ball=1")
     .expect(200)
     .then((response) => {
       // Check type and length
-      expect(response.body.score).toEqual("2");
+      expect(response.body.pins).toEqual("2");
     });
 });
