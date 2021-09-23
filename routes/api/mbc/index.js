@@ -1,15 +1,15 @@
 const express = require("express");
 const router = express.Router();
-const { getPins } = require("../../functions/scoring");
+const { registerGame } = require("../../../functions/register");
 
-//@route    GET api/score
+//@route    GET api/mbc/register
 //@desc     GET pins for one ball
 //@access   Private
-router.get("/", async (req, res) => {
+router.get("/register", async (req, res) => {
   try {
-    let pins = getPins(req.query.ball);
+    let id = await registerGame();
 
-    res.json({ pins });
+    res.json({ id });
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");

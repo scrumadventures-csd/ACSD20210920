@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 //Define Routes
-app.use("/api/score", require("./routes/api/score"));
+app.use("/api/mbc/", require("./routes/api/mbc"));
 
 // Serve static assets in production
 if (process.env.NODE_ENV === "production") {
