@@ -6,7 +6,7 @@ const getRoll = async (id) => {
     `http://pinsetter.herokuapp.com/pinsetter/?action=roll&id=${id}`
   );
   let pins = String(res.data);
-  return { pins };
+  return pins;
 };
 
 module.exports = {
